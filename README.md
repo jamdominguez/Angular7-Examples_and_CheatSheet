@@ -41,6 +41,15 @@ ng serve -o
 
 Angular CLIs build a project automatically and with serve command we can see de applicaton running. Only with 2 instructions!
 
+It is possible change the tab icon image.
+
+`````html
+<!-- Inside  index.html -->
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+`````
+
 ## 1. Angular applications parts
 ### 1.1. Compoments
 It is a decorated class with the decorator @Component joined to a template. The decorater is the application part that define a behavior. A component is divided in several files
