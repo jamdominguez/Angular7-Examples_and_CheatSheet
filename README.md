@@ -1,4 +1,4 @@
-# Angular_7_Examples_and_CheatSheet
+# Angular7_Examples_and_CheatSheet
 Angular 7 projects for begginers.
 Tools needed for work with Angular 7:
 - [Node.js](https://nodejs.org/es/): Platform to manage web apps packages and dependencies.
