@@ -170,6 +170,6 @@ For CSS is necessary review angular.json file. In styles property is defined the
 | ng version           | Return the Angular CLI and angular components version |
 | ng new "projectName" | Create Angular project                                |
 | ng serve -o          | Compile the project and run the server (serve) and open the project (-o)      |
-| ng g c "name" | Create a Angular component. It is a short command of "ng generate component "name"" |
+| ng g c "name" | Create a Angular component and add it to the app.module. It is a short command of "ng generate component "name"" |
 
 )
