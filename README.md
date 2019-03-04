@@ -66,7 +66,7 @@ To create a component:
 ng g c componentName
 ````
 
-This action will create the 4 component files and add it to the application module
+This action will create a folder, the 4 component files and add it to the application module
 
 In the ts file the behavior is defined
 
