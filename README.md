@@ -28,7 +28,7 @@ npm cache verify
 npm install -g @angular/cli@latest
 ```
 
-Inside the project folder chosen use Angular CLI (ng) command to create a project.
+Inside the project folder chosen use Angular CLI (ng) command to create a project. A comoponent app.component is created and added to app.module automatically when the project is created.
 
 ```command
 ng new firstAngular7Project
