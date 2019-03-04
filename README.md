@@ -1,11 +1,11 @@
-# Anguar_7_Training
+# Angular_7_Examples_and_CheatSheet
 Angular 7 projects for begginers.
 Tools needed for work with Angular 7:
 - [Node.js](https://nodejs.org/es/): Platform to manage web apps packages and dependencies.
 - Angular CLI: Angular Command Line Interface, is a tool that help up to work with Angular.
 - TypeScript: A front end typed language to generate JavaScript code.
-- Firebase
 - Bootstrap
+- Firebase (*): A data base manager
 
 The first step is install Node in your machine. Node will help us to install packages and dependencies.
 When Node is installed in your mahine you can verify it from command line. It is possible too verify the Node Package Manager (NPM) version, that is the main Node tool.
@@ -41,8 +41,8 @@ ng serve -o
 
 Angular CLIs build a project automatically and with serve command we can see de applicaton running. Only with 2 instructions!
 
-## Angular applications parts
-### Compoments
+## 1. Angular applications parts
+### 1.1. Compoments
 It is a decorated class with the decorator @Component joined to a template. The decorater is the application part that define a behavior. A component is divided in several files
 
 ````command
@@ -83,7 +83,7 @@ Angular is used to create SPA (Single Page Applications), it use a index.html wh
 <!-- Inside index.html-->
 <app-myComponentName></app-myComponentName>
 ````
-### Modules
+### 1.2. Modules
 The module has the control of everything in the application. It is where the components are declared, external modules are imported, and dependencies/providers are added.
 
 ```` typescript
@@ -97,7 +97,7 @@ The module has the control of everything in the application. It is where the com
 export class AppModule{}
 ````
 
-### Firebase and Bootstrap
+### 2. Firebase and Bootstrap
 Cloudfirestore is a Firebase data base. It is a free data base for personal use (no professional). To install all dependencies.
 
 ```` command
@@ -166,7 +166,10 @@ For CSS is necessary review angular.json file. In styles property is defined the
 ### Angular CLI commands
 | Command              | Description                                           |
 | -------------------- | ----------------------------------------------------- |
+| ng | Return all Angular commands |
 | ng version           | Return the Angular CLI and angular components version |
 | ng new "projectName" | Create Angular project                                |
 | ng serve -o          | Compile the project and run the server (serve) and open the project (-o)      |
+| ng g c "name" | Create a Angular component. It is a short command of "ng generate component "name"" |
+
 )
