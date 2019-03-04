@@ -76,7 +76,7 @@ export class AppComponent{
     title = 'First Angular Project';
 }
 ````
-
+Angular project has a global style file "style.css".
 It is possible access to component variables from code with the double bracers {{}}, it is called interpolation. According under code, it is possible get title value from the component ussing {{title}}, inside component html file.
 
 ```` html
