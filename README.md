@@ -60,6 +60,13 @@ app.myComponentName.html
 app.myComponentName.spec.ts
 app.myComponentName.ts
 ````
+To create a component:
+
+```` command
+ng g c componentName
+````
+
+This action will create the 4 component files and add it to the application module
 
 In the ts file the behavior is defined
 
