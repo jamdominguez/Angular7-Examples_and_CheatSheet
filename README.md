@@ -99,10 +99,10 @@ It is possible access to component variables from code with the double bracers {
 </div>
 ````
 
-Angular is used to create SPA (Single Page Applications), it use a index.html where are invoked all components. The way to get the component in the html file is using his directive, the tag associated to the component (selector). The directives help to change the tag apparience and behavior.
+Angular is used to create SPA (Single Page Applications), it use a index.html where are invoked all components. The way to get the component in the html file is using his directive, the tag associated to the component (selector). The directives help to change the tag apparience and behavior. The main component is the app.component, and it is used in index.html.
 
 ```` html
-<!-- Inside index.html-->
+<!-- Inside app.component.html-->
 <app-myComponentName></app-myComponentName>
 ````
 
