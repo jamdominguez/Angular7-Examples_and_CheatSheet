@@ -112,7 +112,7 @@ To add eventListener relationship with component function, wrap the event into b
 <button (click)="firstClick()">Click me!</button>
 ````
 
-It is possible access to component variables/attributes using **braces []** into the tag.
+It is possible access to component variables/attributes using **braces []** into the tag. It is possible class biding or style binding.
 ```` html
 <!-- Inside component.html-->
 <h1 [class.gray]="h1Style">Hello</h1>
