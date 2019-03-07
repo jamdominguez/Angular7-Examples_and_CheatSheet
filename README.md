@@ -105,11 +105,7 @@ Angular is used to create SPA (Single Page Applications), it use a index.html wh
 <!-- Inside app.component.html-->
 <app-myComponentName></app-myComponentName>
 ````
-
-To navigate enter components use **routerLink** attribute instead href attribute into a tag.
-
-In **app-routing** file is defined the components mapping
-
+#### Functions and properties
 To add eventListener relationship with component function, wrap the event into bracers like this:
 ```` html
 <!-- Inside component.html-->
@@ -135,7 +131,7 @@ And it is possible evaluate variables into tags using angular keywords for funct
     <div *ngIf="messageForm.controls.name.errors.required" class="error">Your name is required</div>
 </div>
 ````
-
+#### Libraries
 To work with formularies angular provide muliple libraries to help us, all of them are include in a module that must be imported in module.app file and the libraries into the component Typescript file.
 ```` typescript
 //Inside app.module.ts
@@ -145,10 +141,39 @@ import { ReactiveFormsModule } from '@angular/forms'
 //Inside app.component.ts
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 ````
-
+#### Constructor and ngOInit
 Differences between **constructor()** and **ngOnInit()**
 - **constructor** is invoked only one time when the component is instantied. Used to simple variables initialize and dependencies inyection
 - **ngOnInit** is invoked only one time after constructor. Used to complex variables initialize and get properties values
+
+#### Routing
+To navigate enter components use **routerLink** attribute instead href attribute into a tag.
+In **app-routing** file is defined the components mapping. Inside app-routing.module.ts is where the routing are defined
+```` html
+//Inside nav.component.html
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">{{ appTitle }}</a>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+````
+```` typescript
+//Inside app-routing.module.ts
+const routes: Routes = [
+  {path : '', component : HomeComponent},
+  {path : 'about', component : AboutComponent},
+  {path : 'contact', component : ContactComponent}
+];
+````
+The tag router-outlet inside app.component.html is where the component routing are loaded
+
 
 ### 1.2. Modules
 The module has the control of everything in the application. It is where the components are declared, external modules are imported, and dependencies/providers are added.
