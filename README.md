@@ -4,6 +4,7 @@ Tools needed for work with Angular 7:
 - [Node.js](https://nodejs.org/es/): Platform to manage web apps packages and dependencies.
 - Angular CLI: Angular Command Line Interface, is a tool that help up to work with Angular.
 - TypeScript: A front end typed language to generate JavaScript code.
+- Http-server: http-server is a simple, zero-configuration command-line http server. It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, local development, and learning
 - Bootstrap
 - Firebase (*): A data base manager
 
@@ -27,6 +28,10 @@ npm uninstall -g @angular/cli
 npm cache verify
 npm install -g @angular/cli@latest
 ```
+To can test the application distribution version is necessary use the Http-server module from Node
+```command
+npm install -g http-server
+```
 
 Inside the project folder chosen use Angular CLI (ng) command to create a project. A comoponent app.component is created and added to app.module automatically when the project is created.
 
@@ -34,8 +39,9 @@ Inside the project folder chosen use Angular CLI (ng) command to create a projec
 ng new firstAngular7Project
 ```
 
-To run the project use the comand into folder project.
+To run the project use the comand into folder project. The "-o" instruction open the main browser with the app page
 ```command
+ng serve
 ng serve -o
 ```
 
@@ -177,6 +183,8 @@ For CSS is necessary review angular.json file. In styles property is defined the
 | node -v                     | Return the Node version          |
 | npm --v                     | Return the NPM version           |
 | npm install -g @angular/cli | Install Angular CLI for all (-g) |
+| npm install -g http-server  | Install Http Server module for all (-g) |
+| http-server -o | Deploy the distribution application version and open the application (-o). Must execute the command into the folder distribution application |
 
 
 ### Angular CLI commands
