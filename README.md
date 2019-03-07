@@ -115,13 +115,21 @@ To add eventListener relationship with component function, wrap the event into b
 It is possible access to component variables/attributes (attributes binding) using **braces []** into the tag. It is possible class biding or style binding.
 ```` html
 <!-- Inside component.html-->
-<h1 [class.gray]="h1Style">Hello</h1>
-<h1 [ngClass]="h1Style">Hello</h1>
-<h1 [ngStyle]="h1Style ? 'gray' : 'black'">Hello</h1>
+<h1 [class.gray]="h1Style">Home class property</h1> <!-- Set class gray if h1Style is true-->
+
+<h1 [ngClass]="{
+  'gray' : h1Style,
+  'large' : !h1Style
+}">Home ngClass</h1> <!-- Set gray class and large class according h1Style value (several class acording logic) -->
+
+<h1 [style.color]="h1Style ? 'black' :  'red'">Home style property</h1> <!-- Set a style property value according h1Style value -->
+
 <h1 [ngStyle]="{
-        'color' : h1Style ? 'gray' : 'black',
-        'font-size' : !h1Style ? '1em' : '4em'
-    }">Hello</h1>
+  'color' : h1Style ? 'black' :  'red',
+  'font-size' : !h1Style ? '1em' : '4em'
+}">Home ngStyle</h1>
+
+<button (click)="firstClick()">Click me!</button> <!-- Set several style properties value according h1Style value (logic) -->
 ````
 
 And it is possible evaluate variables into tags using angular keywords for functions like *ngIf, *ngFor.
