@@ -105,6 +105,51 @@ Angular is used to create SPA (Single Page Applications), it use a index.html wh
 <!-- Inside index.html-->
 <app-myComponentName></app-myComponentName>
 ````
+
+To navigate enter components use **routerLink** attribute instead href attribute into a tag.
+
+In **app-routing** file is defined the components mapping
+
+To add eventListener relationship with component function, wrap the event into bracers like this:
+```` html
+<!-- Inside component.html-->
+<button (click)="firstClick()">Click me!</button>
+````
+
+It is possible access to component variables/attributes using **braces []** into the tag.
+```` html
+<!-- Inside component.html-->
+<h1 [class.gray]="h1Style">Hello</h1>
+<h1 [ngClass]="h1Style">Hello</h1>
+<h1 [ngStyle]="h1Style ? 'gray' : 'black'">Hello</h1>
+<h1 [ngStyle]="{
+        'color' : h1Style ? 'gray' : 'black',
+        'font-size' : !h1Style ? '1em' : '4em'
+    }">Hello</h1>
+````
+
+And it is possible evaluate variables into tags using angular keywords for functions like *ngIf, *ngFor.
+```` html
+<!-- Inside component.html-->
+<div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+    <div *ngIf="messageForm.controls.name.errors.required" class="error">Your name is required</div>
+</div>
+````
+
+To work with formularies angular provide muliple libraries to help us, all of them are include in a module that must be imported in module.app file and the libraries into the component Typescript file.
+```` typescript
+//Inside app.module.ts
+import { ReactiveFormsModule } from '@angular/forms'
+````
+```` typescript
+//Inside app.component.ts
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+````
+
+Differences between **constructor()** and **ngOnInit()**
+- **constructor** is invoked only one time when the component is instantied. Used to simple variables initialize and dependencies inyection
+- **ngOnInit** is invoked only one time after constructor. Used to complex variables initialize and get properties values
+
 ### 1.2. Modules
 The module has the control of everything in the application. It is where the components are declared, external modules are imported, and dependencies/providers are added.
 
@@ -177,23 +222,24 @@ For CSS is necessary review angular.json file. In styles property is defined the
 ]
 ````
 
-### Node and Node Package Manager (NPM)
-| Command                     | Description                      |
-| --------------------------- | -------------------------------- |
-| node -v                     | Return the Node version          |
-| npm --v                     | Return the NPM version           |
-| npm install -g @angular/cli | Install Angular CLI for all (-g) |
-| npm install -g http-server  | Install Http Server module for all (-g) |
-| http-server -o | Deploy the distribution application version and open the application (-o). Must execute the command into the folder distribution application |
+### 3. Node and Node Package Manager (NPM)
+| Command                     | Description                                                                                                                                  |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| node -v                     | Returns the Node version                                                                                                                     |
+| npm --v                     | Returns the NPM version                                                                                                                      |
+| npm install -g @angular/cli | Install Angular CLI for all (-g)                                                                                                             |
+| npm install -g http-server  | Install Http Server module for all (-g)                                                                                                      |
+| http-server -o              | Deploy the distribution application version and open the application (-o). Must execute the command into the folder distribution application |
 
 
-### Angular CLI commands
-| Command              | Description                                           |
-| -------------------- | ----------------------------------------------------- |
-| ng | Return all Angular commands |
-| ng version           | Return the Angular CLI and angular components version |
-| ng new "projectName" | Create Angular project                                |
-| ng serve -o          | Compile the project and run the server (serve) and open the project (-o)      |
-| ng g c "name" | Create a Angular component and add it to the app.module. It is a short command of "ng generate component "name"" |
-
-)
+### 4. Angular CLI commands
+| Command              | Description                                                                                                       |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| ng                   | Return all Angular commands                                                                                       |
+| ng version           | Return the Angular CLI and angular components version                                                             |
+| ng new "projectName" | Creates Angular project                                                                                           |
+| ng serve -o          | Compile the project and run the server (serve) and open the project (-o)                                          |
+| ng g c "name"        | Creates a Angular component and add it to the app.module. It is a short command of "ng generate component "name"" |
+| ng g s "name"        | Creates a Angular service and add it to the app.module. It is a short command of "ng generate service "name""     |
+| ng build             | Creates a dist folder and creates the distribution app files                                                      |
+| ng build --prod      | Creates a dist folder and creates the production distribution app files with the min size                         |
