@@ -105,7 +105,7 @@ Angular is used to create SPA (Single Page Applications), it use a index.html wh
 <!-- Inside app.component.html-->
 <app-myComponentName></app-myComponentName>
 ````
-#### Functions and bindings
+#### 1.1.1. Functions and bindings
 To add eventListener relationship with component function, wrap the event into bracers like this:
 ```` html
 <!-- Inside myComponent.component.html-->
@@ -139,7 +139,7 @@ And it is possible evaluate variables into tags using angular keywords for funct
     <div *ngIf="messageForm.controls.name.errors.required" class="error">Your name is required</div>
 </div>
 ````
-#### Libraries
+#### 1.1.2. Libraries
 To work with formularies angular provide muliple libraries to help us, all of them are include in a module that must be imported in module.app file and the libraries into the component Typescript file.
 ```` typescript
 //Inside app.module.ts
@@ -149,12 +149,12 @@ import { ReactiveFormsModule } from '@angular/forms'
 //Inside app.component.ts
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 ````
-#### Constructor and ngOInit
+#### 1.1.3. Constructor and ngOInit
 Differences between **constructor()** and **ngOnInit()**
 - **constructor** is invoked only one time when the component is instantied. Used to simple variables initialize and dependencies inyection
 - **ngOnInit** is invoked only one time after constructor. Used to complex variables initialize and get properties values
 
-#### Routing
+#### 1.1.4. Routing
 To navigate enter components use **routerLink** attribute instead href attribute into a tag.
 In **app-routing** file is defined the components mapping. Inside app-routing.module.ts is where the routing are defined
 ```` html
@@ -182,7 +182,7 @@ const routes: Routes = [
 ````
 The tag router-outlet inside app.component.html is where the component routing are loaded
 
-#### Forms
+#### 1.1.5. Forms
 Angular provide libraries to build reactive forms. For do that, is necessary import the ReactiveFormsModule module:
 ```` typescript
 //Inside app.module.ts
