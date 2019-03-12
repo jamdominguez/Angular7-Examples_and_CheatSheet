@@ -77,7 +77,7 @@ This action will create a folder, the 4 component files and add it to the applic
 In the ts file the behavior is defined
 
 ```` typescript
-//Inside app.myComponentName.ts
+//Inside myComponent.component.ts
 import {Component} from '@angular/core';
 
 @Component({
@@ -105,16 +105,16 @@ Angular is used to create SPA (Single Page Applications), it use a index.html wh
 <!-- Inside app.component.html-->
 <app-myComponentName></app-myComponentName>
 ````
-#### Functions and properties
+#### Functions and bindings
 To add eventListener relationship with component function, wrap the event into bracers like this:
 ```` html
-<!-- Inside component.html-->
+<!-- Inside myComponent.component.html-->
 <button (click)="firstClick()">Click me!</button>
 ````
 
 It is possible access to component variables/attributes (attributes binding) using **braces []** into the tag. It is possible class biding or style binding.
 ```` html
-<!-- Inside component.html-->
+<!-- Inside myComponent.component.html-->
 <h1 [class.gray]="h1Style">Home class property</h1> <!-- Set class gray if h1Style is true-->
 
 <h1 [ngClass]="{
@@ -134,7 +134,7 @@ It is possible access to component variables/attributes (attributes binding) usi
 
 And it is possible evaluate variables into tags using angular keywords for functions like *ngIf, *ngFor.
 ```` html
-<!-- Inside component.html-->
+<!-- Inside myComponent.component.html-->
 <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
     <div *ngIf="messageForm.controls.name.errors.required" class="error">Your name is required</div>
 </div>
@@ -158,7 +158,7 @@ Differences between **constructor()** and **ngOnInit()**
 To navigate enter components use **routerLink** attribute instead href attribute into a tag.
 In **app-routing** file is defined the components mapping. Inside app-routing.module.ts is where the routing are defined
 ```` html
-//Inside nav.component.html
+<!-- Inside nav.component.html -->
 <header>
   <div class="container">
     <a routerLink="/" class="logo">{{ appTitle }}</a>
@@ -182,6 +182,68 @@ const routes: Routes = [
 ````
 The tag router-outlet inside app.component.html is where the component routing are loaded
 
+#### Forms
+Angular provide libraries to build reactive forms. For do that, is necessary import the ReactiveFormsModule module:
+```` typescript
+//Inside app.module.ts
+import { ReactiveFormsModule } from '@angular/forms'
+````
+
+After import the module it is possible use the libraries into components:
+```` typescript
+//Inside myComponent.component.ts
+import { FormBuilder, FormGroup, Validators} from '@angular/forms'
+````
+Where:
+- FormGroup is the wrapper class for forms. It contains all form inputs and provide functions for works with forms.
+- FormBuilder is the serivce that must be injected for build the forms 
+- Validators is the service used for form validations
+```` typescript
+//Inside myComponent.component.ts
+export class MyComponent implements OnInit {
+
+  myForm : FormGroup;
+
+  constructor(private formBuilder : FormBuilder) { 
+    this.myForm = this.formBuilder.group({
+      name : ['', Validators.required],
+      message : ['', Validators.required]      
+    })
+  }
+
+  onSubmit() {    
+    if (this.messageForm.invalid) {
+      return;
+    }    
+  }
+````
+From the component's html it is possible evaluate inputs and validations. Using **"formName".controls."inputName"** it is possible access to form's input
+````html
+<!-- Inside myComponent.component.html-->
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">  
+  <label>
+    Name: <input type="text" formControlName="name">
+    <div *ngIf="myForm.controls.name.errors" class="error">
+      <div *ngIf="myForm.controls.name.errors.required">Your name is required </div>
+    </div>
+  </label>
+
+  <label>
+    Message: <textarea formControlName="message"></textarea>
+    <div *ngIf="myForm.controls.message.errors" class="error">
+      <div *ngIf="myForm.controls.message.errors.required">Your message is required </div>
+    </div>
+  </label>  
+
+  <input type="submit" value="Send message" class="cta">
+
+</form>
+
+<div class="results">
+  <strong>Name: </strong><span>{{ myForm.controls.name.value }}</span>
+  <strong>Message: </strong><span>{{ myForm.controls.message.value }}</span>
+</div>
+````
 
 ### 1.2. Modules
 The module has the control of everything in the application. It is where the components are declared, external modules are imported, and dependencies/providers are added.
