@@ -149,7 +149,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 //Inside app.component.ts
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 ````
-#### 1.1.3. Constructor and ngOInit
+#### 1.1.3. Constructor and ngOnInit
 Differences between **constructor()** and **ngOnInit()**
 - **constructor** is invoked only one time when the component is instantied. Used to simple variables initialize and dependencies inyection
 - **ngOnInit** is invoked only one time after constructor. Used to complex variables initialize and get properties values
